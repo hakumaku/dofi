@@ -1,0 +1,106 @@
+k9s:
+  repo: derailed/k9s
+  artifact: k9s_Linux_amd64.tar.gz
+  version:
+    command: ["k9s", "version"]
+    pattern: Version:\\s*(.*)
+    strip: "\\x1B\\[([0-9]{1,2}(;[0-9]{1,2})?)?[m|K]"
+
+kubectx:
+  repo: ahmetb/kubectx
+  artifact: kubectx_v.*_linux_x86_64.tar.gz
+  version:
+    command: ["kubectx", "--version"]
+    pattern: "([^,]*).*"
+
+kubeseal:
+  repo: bitnami-labs/sealed-secrets
+  artifact: kubeseal-.*-linux-amd64.tar.gz$
+  version:
+    command: ["kubeseal", "--version"]
+    pattern: "kubeseal version: ([^,]*).*"
+
+shfmt:
+  repo: mvdan/sh
+  artifact: shfmt_v.*_linux_amd64
+  version:
+    command: ["shfmt", "--version"]
+    pattern: "(.*)"
+
+onefetch:
+  repo: o2sh/onefetch
+  artifact: onefetch-linux.tar.gz
+  version:
+    command: ["onefetch", "--version"]
+    pattern: "onefetch (.*)"
+
+lazygit:
+  repo: jesseduffield/lazygit
+  artifact: lazygit_.*_Linux_x86_64.tar.gz
+  version:
+    command: ["lazygit", "--version"]
+    pattern: "version=([^,]*),.*"
+
+lazydocker:
+  repo: jesseduffield/lazydocker
+  artifact: onefetch-linux.tar.gz
+  version:
+    command: ["lazydocker", "--version"]
+    pattern: "Version: ([^,]*).*"
+
+exa:
+  repo: ogham/exa
+  artifact: exa-linux-x86_64-v.*.zip
+  version:
+    command: ["exa", "--version"]
+    pattern: "^(v[\\.\\d]*)"
+
+bat:
+  repo: sharkdp/bat
+  artifact: bat-v.*-x86_64-unknown-linux-gnu.tar.gz
+  version:
+    command: ["bat", "--version"]
+    pattern: "bat ([\\.\\d]*)"
+
+fd:
+  repo: sharkdp/fd
+  artifact: fd-v.*-x86_64-unknown-linux-gnu.tar.gz
+  version:
+    command: ["fd", "--version"]
+    pattern: "fd (.*)"
+
+rg:
+  repo: BurntSushi/ripgrep
+  artifact: ripgrep-.*-x86_64-unknown-linux-musl.tar.gz
+  version:
+    command: ["rg", "--version"]
+    pattern: "ripgrep ([\\.\\d]*)"
+
+btm:
+  repo: ClementTsang/bottom
+  artifact: bottom_x86_64-unknown-linux-gnu.tar.gz
+  version:
+    command: ["btm", "--version"]
+    pattern: "btm (.*)"
+
+dust:
+  repo: bootandy/dust
+  artifact: dust-v.*-x86_64-unknown-linux-gnu.tar.gz
+  version:
+    command: ["dust", "--version"]
+    pattern: "Dust (.*)"
+
+difft:
+  repo: Wilfred/difftastic
+  artifact: difft-x86_64-unknown-linux-gnu.tar.gz
+  version:
+    command: ["difft", "--version"]
+    pattern: "Difftastic (.*)"
+
+delta:
+  repo: dandavison/delta
+  artifact: delta-.*-x86_64-unknown-linux-gnu.tar.gz
+  version:
+    command: ["delta", "--version"]
+    pattern: "delta (.*)"
+
