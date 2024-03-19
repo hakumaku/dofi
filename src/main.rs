@@ -1,4 +1,4 @@
-use dofi::config::read_config;
+use dofi::read_config;
 
 fn main() {
     let config = read_config("./dofi.yaml");
