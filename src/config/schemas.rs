@@ -1,5 +1,5 @@
 use serde::{Deserialize, Serialize};
-use std::{collections::HashMap, fmt::Display, fs::File};
+use std::{collections::HashMap, fmt::Display};
 
 #[derive(Debug, Serialize, Deserialize)]
 struct GithubPackageVersion {
@@ -24,11 +24,14 @@ impl Display for GithubPackage {
 }
 
 pub fn read_config(path: &str) -> GithubPackages {
-    let result = serde_yaml::from_reader(
-        File::open(path).unwrap_or_else(|_| panic!("cannot open '{}'", path)),
-    );
+    let result = config::Config::builder()
+        .add_source(config::File::new(path, config::FileFormat::Yaml))
+        .build()
+        .unwrap_or_else(|_| panic!("cannot open a file '{}'", path))
+        .try_deserialize::<GithubPackages>();
+
     if let Err(e) = result {
-        eprintln!("{}", e);
+        eprintln!("{e}");
         std::process::exit(1);
     }
 
