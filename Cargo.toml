@@ -8,5 +8,6 @@ edition = "2021"
 path = "src/lib.rs"
 
 [dependencies]
+clap = { version = "4.5.3", features = ["derive", "string", "std", "color", "help"], default-features = false }
+config = { version = "0.14.0", default-features = false, features = ["yaml"] }
 serde = { version = "1.0.197", features = ["derive"] }
-serde_yaml = "0.9.33"

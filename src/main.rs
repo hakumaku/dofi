@@ -1,8 +1,9 @@
-use dofi::read_config;
+use clap::Parser;
+
+use dofi::Args;
 
 fn main() {
-    let config = read_config("./dofi.yaml");
-    for (name, package) in config.into_iter() {
-        println!("{}: {}", name, package);
-    }
+    let args = Args::parse();
+
+    args.run()
 }
