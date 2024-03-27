@@ -7,7 +7,18 @@ edition = "2021"
 [lib]
 path = "src/lib.rs"
 
+[[bin]]
+path = "src/main.rs"
+name = "dofi"
+
 [dependencies]
 clap = { version = "4.5.3", features = ["derive", "string", "std", "color", "help"], default-features = false }
 config = { version = "0.14.0", default-features = false, features = ["yaml"] }
+reqwest = { version = "0.12.4", features = ["json"] }
 serde = { version = "1.0.197", features = ["derive"] }
+serde_json = "1.0.117"
+
+[dev-dependencies]
+tokio = { version = "1.37.0", features = ["macros"] }
+tokio-macros = "2.2.0"
+tokio-test = "0.4.4"
