@@ -10,7 +10,7 @@ build:
 	@cargo build
 
 test:
-	@cargo test
+	@cargo test --lib --bins --tests -- --nocapture
 
 coverage:
 	@cargo tarpaulin --ignore-tests
